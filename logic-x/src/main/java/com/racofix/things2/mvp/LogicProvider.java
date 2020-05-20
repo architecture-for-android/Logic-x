@@ -25,16 +25,15 @@ class LogicProvider {
         if (logicArr == null) return;
 
         String viewKey = view.getClass().getName();
-        HashSet<BaseLogic> logics = logicCaches.get(viewKey);
-        if (logics == null) {
-            logics = new HashSet<>();
-        }
+        if (logicCaches.containsKey(viewKey)) return;
+
+        HashSet<BaseLogic> logics = new HashSet<>();
 
         Class[] classes = logicArr.value();
         for (Class clazz : classes) {
             try {
                 BaseLogic<V> baseLogic = Util.castTo(clazz.newInstance());
-                baseLogic.attach(view);
+                baseLogic.bindView(view);
                 baseLogic.onLogicCreated();
                 logics.add(baseLogic);
 
@@ -74,7 +73,7 @@ class LogicProvider {
         }
 
         for (BaseLogic logic : logics) {
-            logic.detach();
+            logic.unbindView();
             logic.onLogicDestroy();
         }
 

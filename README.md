@@ -1,15 +1,16 @@
 ## Usage
 ```
 dependencies {
-    implementation 'com.racofix.things2:logic:1.1.0'
+    // implementation 'com.racofix.things2:logic:1.1.3'
 
     // androidx
-    implementation 'com.racofix.things2:logic-x:1.1.0'
+    implementation 'com.racofix.things2:logic-x:1.1.3'
 }
 ```
 
 
 ## Example
+View Layer (视图层)
 ```
 @LogicArr({Register.class, Login.class})
 public class LoginActivity extends BaseLogicActivity implements LoginI.View, RegisterI.View {

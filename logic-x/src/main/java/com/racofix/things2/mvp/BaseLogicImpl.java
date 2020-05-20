@@ -11,7 +11,7 @@ public class BaseLogicImpl<V> implements BaseLogic<V> {
     private WeakReference<V> weakReference;
 
     @Override
-    public void attach(final V view) {
+    public void bindView(final V view) {
         weakReference = new WeakReference<>(view);
         viewProxy = Util.castTo(
                 Proxy.newProxyInstance(
@@ -20,7 +20,7 @@ public class BaseLogicImpl<V> implements BaseLogic<V> {
                         new InvocationHandler() {
                             @Override
                             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                                if (isViewAttached())
+                                if (isViewBind())
                                     return method.invoke(weakReference.get(), args);
                                 return null;
                             }
@@ -28,15 +28,15 @@ public class BaseLogicImpl<V> implements BaseLogic<V> {
     }
 
     @Override
-    public void detach() {
-        if (isViewAttached()) {
+    public void unbindView() {
+        if (isViewBind()) {
             weakReference.clear();
             weakReference = null;
         }
     }
 
     @Override
-    public boolean isViewAttached() {
+    public boolean isViewBind() {
         return weakReference != null && weakReference.get() != null;
     }
 

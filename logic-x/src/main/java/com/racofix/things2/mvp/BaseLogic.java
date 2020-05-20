@@ -2,11 +2,11 @@ package com.racofix.things2.mvp;
 
 interface BaseLogic<V> {
 
-    void attach(V view);
+    void bindView(V view);
 
-    void detach();
+    void unbindView();
 
-    boolean isViewAttached();
+    boolean isViewBind();
 
     V getView();
 
