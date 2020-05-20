@@ -1,4 +1,4 @@
-package com.racofix.things2.m;
+package com.racofix.things2.mvp;
 
 class Util {
 

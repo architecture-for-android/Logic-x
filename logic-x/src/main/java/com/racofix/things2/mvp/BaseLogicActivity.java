@@ -1,23 +1,23 @@
-package com.racofix.things2.m;
+package com.racofix.things2.mvp;
 
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class BaseLogicFragment extends Fragment {
+public class BaseLogicActivity extends AppCompatActivity {
 
     private LogicProvider logicProvider;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         logicProvider = LogicProvider.getInstance();
         logicProvider.put(this);
     }
 
     @Override
-    public void onDestroy() {
+    protected void onDestroy() {
         super.onDestroy();
         logicProvider.remove(this);
     }
