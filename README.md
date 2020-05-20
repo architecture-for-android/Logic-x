@@ -1,4 +1,4 @@
-<a href='https://bintray.com/meikoz/Things2/logic-x?source=watch' alt='Get automatic notifications about new "logic-x" versions'><img src='https://www.bintray.com/docs/images/bintray_badge_color.png'></a><a href='https://bintray.com/meikoz/Things2/logic-x?source=watch' alt='Get automatic notifications about new "logic-x" versions'><img src='https://www.bintray.com/docs/images/bintray_badge_color.png'></a>
+[ ![Download](https://api.bintray.com/packages/meikoz/Things2/logic-x/images/download.svg) ](https://bintray.com/meikoz/Things2/logic-x/_latestVersion)
 ## Usage
 ```
 dependencies {
