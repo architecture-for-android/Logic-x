@@ -10,6 +10,7 @@ dependencies {
 
 
 ## Example
+View Layer (视图层)
 ```
 @LogicArr({Register.class, Login.class})
 public class LoginActivity extends BaseLogicActivity implements LoginI.View, RegisterI.View {
