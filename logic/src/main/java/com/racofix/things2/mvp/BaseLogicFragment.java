@@ -1,4 +1,4 @@
-package com.racofix.thingy.mvps;
+package com.racofix.things2.mvp;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

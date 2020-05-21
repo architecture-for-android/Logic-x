@@ -1,4 +1,4 @@
-package com.racofix.thingy.mvps;
+package com.racofix.things2.mvp;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

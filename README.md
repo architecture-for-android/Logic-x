@@ -1,10 +1,14 @@
 ## Usage
 ```
-dependencies {
-    // implementation 'com.racofix.things2:logic:1.1.5'
+repositories {
+	maven { url 'https://dl.bintray.com/meikoz/Things2' }
+}
 
-    // androidx
-    implementation 'com.racofix.things2:logic-x:1.1.5'
+dependencies {
+    //android support v7
+    implementation 'com.racofix.things2:logic:1.1.6'
+    //androidx
+    implementation 'com.racofix.things2:logic-x:1.1.6'
 }
 ```
 
