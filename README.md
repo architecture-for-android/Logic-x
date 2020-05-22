@@ -4,7 +4,7 @@ Model-View-Presenter
 ## Usage
 ```
 repositories {
-	maven { url 'https://dl.bintray.com/meikoz/Things2' }
+    maven { url 'https://dl.bintray.com/meikoz/Things2' }
 }
 
 dependencies {
