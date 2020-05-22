@@ -15,7 +15,6 @@ dependencies {
 }
 ```
 
-## Example
 #### View Layer (视图层)
 ```
 @LogicArr({Register.class, Login.class})
@@ -56,7 +55,6 @@ public class Login extends BaseLogicImpl<LoginI.View> implements LoginI.Logic {
 
     @Override
     public void sign_in(String username, String password) {
-        /*do some things*/
         getView().sign_in_success();
     }
 }
