@@ -1,6 +1,6 @@
-## Things2-Logic [ ![Download](https://api.bintray.com/packages/meikoz/Things2/logic-x/images/download.svg) ](https://bintray.com/meikoz/Things2/logic-x/_latestVersion)
+## Things2-Logic
 Model-View-Presenter
-
+ [ ![Download](https://api.bintray.com/packages/meikoz/Things2/logic-x/images/download.svg) ](https://bintray.com/meikoz/Things2/logic-x/_latestVersion)
 ## Usage
 ```
 repositories {
