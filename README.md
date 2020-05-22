@@ -1,5 +1,7 @@
+## Things2-Logic [ ![Download](https://api.bintray.com/packages/meikoz/Things2/logic-x/images/download.svg) ](https://bintray.com/meikoz/Things2/logic-x/_latestVersion)
+Model-View-Presenter
+
 ## Usage
-[ ![Download](https://api.bintray.com/packages/meikoz/Things2/logic-x/images/download.svg) ](https://bintray.com/meikoz/Things2/logic-x/_latestVersion)
 ```
 repositories {
 	maven { url 'https://dl.bintray.com/meikoz/Things2' }
@@ -7,9 +9,9 @@ repositories {
 
 dependencies {
     //android support v7
-    implementation 'com.racofix.things2:logic:1.1.6'
+    implementation 'com.racofix.things2:logic:1.1.7'
     //androidx
-    implementation 'com.racofix.things2:logic-x:1.1.6'
+    implementation 'com.racofix.things2:logic-x:1.1.7'
 }
 ```
 

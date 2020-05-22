@@ -1,5 +1,7 @@
 package com.racofix.things2.mvp;
 
+import android.util.Log;
+
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -7,7 +9,7 @@ import java.util.Map;
 class LogicProvider {
 
     private static volatile LogicProvider logicProvider;
-    private Map<String, HashSet<BaseLogic>> logicCaches = new LinkedHashMap<>();
+    private Map<Object, HashSet<BaseLogic>> logicCaches = new LinkedHashMap<>();
 
     static LogicProvider getInstance() {
         if (logicProvider == null) {
@@ -24,9 +26,7 @@ class LogicProvider {
         LogicArr logicArr = view.getClass().getAnnotation(LogicArr.class);
         if (logicArr == null) return;
 
-        String viewKey = view.getClass().getName();
-        if (logicCaches.containsKey(viewKey)) return;
-
+        if (logicCaches.containsKey(view)) return;
         HashSet<BaseLogic> logics = new HashSet<>();
 
         Class[] classes = logicArr.value();
@@ -41,16 +41,16 @@ class LogicProvider {
                 e.printStackTrace();
             }
         }
-
         if (logics.isEmpty()) return;
-        logicCaches.put(viewKey, logics);
+
+        Log.d(getClass().getSimpleName(), view.getClass().getSimpleName() + " Init LogicArr >>\n" + logics.toString());
+        logicCaches.put(view, logics);
     }
 
     <V, T extends BaseLogic> T get(V view, Class<T> clazz) {
-        String viewKey = view.getClass().getName();
-        HashSet<BaseLogic> logics = logicCaches.get(viewKey);
+        HashSet<BaseLogic> logics = logicCaches.get(view);
         if (logics == null || logics.isEmpty()) {
-            throw new NullPointerException(viewKey + " @LogicArr is empty.");
+            throw new NullPointerException(view.getClass().getName() + " @LogicArr is empty.");
         }
 
         T baseLogic = null;
@@ -62,21 +62,21 @@ class LogicProvider {
             }
         }
 
+        Log.d(getClass().getName(), view.getClass().getSimpleName() + " LogicImpl " + baseLogic.toString());
         return baseLogic;
     }
 
     <V> void remove(V view) {
-        String viewKey = view.getClass().getName();
-        HashSet<BaseLogic> logics = logicCaches.get(viewKey);
+        HashSet<BaseLogic> logics = logicCaches.get(view);
         if (logics == null || logics.isEmpty()) {
             return;
         }
-
         for (BaseLogic logic : logics) {
             logic.unbindView();
             logic.onLogicDestroy();
         }
 
-        logicCaches.remove(viewKey);
+        Log.d(getClass().getSimpleName(), view.getClass().getSimpleName() + " Remove LogicArr >>\n" + logics.toString());
+        logicCaches.remove(view);
     }
 }
